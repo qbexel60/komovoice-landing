@@ -3,6 +3,8 @@
 import { Menu, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import PillLink from '@/components/ui/PillLink';
+import ProductMenu from '@/components/ui/ProductMenu';
+import ProductSites from '@/components/ui/ProductSites';
 import { CONTACT_HREF, NAV_LINKS } from '@/lib/links';
 
 /**
@@ -57,17 +59,20 @@ export default function Nav() {
         }`}
       >
         <div className="flex h-14 items-center justify-between gap-4 pl-4 pr-2 sm:h-[60px] sm:pl-5">
-          <a href="#top" className="shrink-0 rounded-lg" aria-label="KomoVoice, back to top">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/brand/komovoice-logo-color-on-light.svg" alt="" width={825} height={152} className="h-[22px] w-auto sm:h-6" />
-          </a>
+          <div className="flex shrink-0 items-center gap-0.5">
+            <a href="#top" className="shrink-0 rounded-lg" aria-label="KomoVoice, back to top">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/brand/komovoice-logo-color-on-light.svg" alt="" width={825} height={152} className="h-[22px] w-auto sm:h-6" />
+            </a>
+            <ProductMenu />
+          </div>
 
           <ul className="hidden items-center gap-0.5 lg:flex">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="rounded-full px-3.5 py-2 text-[15px] font-medium text-body transition-colors hover:bg-brand-50 hover:text-ink"
+                  className="rounded-full px-3 py-2 text-[15px] font-medium text-body transition-colors hover:bg-brand-50 hover:text-ink xl:px-3.5"
                 >
                   {link.label}
                 </a>
@@ -92,7 +97,7 @@ export default function Nav() {
           </div>
         </div>
 
-        <div id="mobile-menu" hidden={!open} className="border-t border-line px-3 pb-4 pt-2 lg:hidden">
+        <div id="mobile-menu" hidden={!open} className="max-h-[calc(100dvh-5rem)] overflow-y-auto border-t border-line px-3 pb-4 pt-2 lg:hidden">
           <ul className="grid gap-1">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
@@ -106,6 +111,10 @@ export default function Nav() {
               </li>
             ))}
           </ul>
+          <p className="mt-2 border-t border-line px-3 pb-1 pt-3 text-[12px] font-semibold uppercase tracking-wide text-muted">
+            Qbexel products
+          </p>
+          <ProductSites compact className="grid grid-cols-2 gap-0.5" onPick={() => setOpen(false)} />
           <div className="mt-3 grid gap-2 sm:hidden">
             <PillLink href={CONTACT_HREF} className="w-full justify-between" onClick={() => setOpen(false)}>
               Talk to us

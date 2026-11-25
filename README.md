@@ -68,3 +68,11 @@ link previews get absolute image URLs.
 - Every loop rests while its section is off screen (`data-paused`). With reduced motion nothing moves: the call shows
   its finished transcript and result.
 - Checked: no sideways scroll at 360, 390, 768, 1024, 1280 and 1920 px; no console errors.
+
+## Links between the five product sites
+
+The five sites (getautomate, getkomobox, komochat, komovoice, eastrak `.qbexel.com`) live in one list in
+`lib/links.ts` (`PRODUCT_SITES`, `THIS_PRODUCT`). The family cards ("Visit KomoBox →", whole card clickable,
+`components/ui/VisitLink.tsx`), the grid button beside the logo (wide screens, `ProductMenu.tsx`), the "Qbexel
+products" part of the phone menu and the footer's Products row (`ProductSites.tsx`) all read it. This page is marked
+"You are here" and never linked. Same tab, plain links. The same list sets the link-preview address.

@@ -34,3 +34,34 @@ export const NAV_LINKS = [
   { label: 'Enterprise', href: '#enterprise' },
   { label: 'FAQ', href: '#faq' },
 ] as const;
+
+/** The five Qbexel product sites: the one list the family section, the top-bar menu and the footer link from. */
+const SITE_URLS = {
+  automate: 'https://getautomate.qbexel.com',
+  komobox: 'https://getkomobox.qbexel.com',
+  komochat: 'https://komochat.qbexel.com',
+  komovoice: 'https://komovoice.qbexel.com',
+  eastrak: 'https://eastrak.qbexel.com',
+} as const;
+
+export type ProductId = keyof typeof SITE_URLS;
+
+/** The product this page is about: marked "You are here", never linked. */
+export const THIS_PRODUCT: ProductId = 'komovoice';
+
+/** This page's live address (link previews use it when NEXT_PUBLIC_SITE_URL is not set). */
+export const THIS_SITE_URL: string = SITE_URLS[THIS_PRODUCT];
+
+export const PRODUCT_SITES: { id: ProductId; name: string; url: string; icon: string; job: string }[] = [
+  { id: 'automate', name: 'AutoMate', url: SITE_URLS.automate, icon: '/brand/automate-app-icon.svg', job: 'Orders, couriers and profit' },
+  { id: 'komobox', name: 'KomoBox', url: SITE_URLS.komobox, icon: '/brand/komobox-app-icon.svg', job: 'One inbox for your team' },
+  { id: 'komochat', name: 'KomoChat', url: SITE_URLS.komochat, icon: '/brand/komochat-app-icon.svg', job: 'AI sales chat' },
+  { id: 'komovoice', name: 'KomoVoice', url: SITE_URLS.komovoice, icon: '/brand/komovoice-app-icon.svg', job: 'AI phone calls' },
+  { id: 'eastrak', name: 'Eastrak', url: SITE_URLS.eastrak, icon: '/brand/eastrak-app-icon.svg', job: 'Ad tracking' },
+];
+
+/** Where a family card links: the product's own site. Nothing for this page, or for items that are not one of the five. */
+export function productHref(id: string): string | undefined {
+  if (id === THIS_PRODUCT || !(id in SITE_URLS)) return undefined;
+  return SITE_URLS[id as ProductId];
+}

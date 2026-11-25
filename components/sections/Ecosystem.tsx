@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element -- small local SVG logos in a static export */
 import { Fragment } from 'react';
 import SectionHead from '@/components/ui/SectionHead';
+import VisitLink from '@/components/ui/VisitLink';
 
 type Status = 'live' | 'soon' | 'coming';
 
@@ -84,7 +85,7 @@ export default function Ecosystem() {
           {PRODUCTS.map((p, i) => (
             <Fragment key={p.id}>
               <article
-                className={`card flex-1 p-5 sm:p-6 ${p.id === 'komovoice' ? 'ring-2 ring-brand/70 shadow-[0_20px_44px_-16px_rgb(242_84_45/0.4)]' : ''}`}
+                className={`card group relative flex-1 p-5 sm:p-6 ${p.id === 'komovoice' ? 'ring-2 ring-brand/70 shadow-[0_20px_44px_-16px_rgb(242_84_45/0.4)]' : ''}`}
               >
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <h3>
@@ -97,6 +98,7 @@ export default function Ecosystem() {
                 </div>
                 <p className="mt-4 text-xl font-bold tracking-tight text-ink">{p.job}</p>
                 <p className="mt-1 text-[15px] leading-relaxed text-body">{p.text}</p>
+                <VisitLink id={p.id} name={p.name} className="text-brand-ink" />
               </article>
 
               {i < LINKS.length && <Connector {...LINKS[i]} />}
@@ -113,7 +115,7 @@ export default function Ecosystem() {
           <p className="text-center text-[15px] font-semibold text-ink">Also in the Qbexel family</p>
           <ul className="mt-5 grid gap-3 sm:grid-cols-2">
             {FAMILY.map((p) => (
-              <li key={p.id} className="card p-5 sm:p-6">
+              <li key={p.id} className="card group relative p-5 sm:p-6">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <h3>
                     <img src={p.logo.src} alt={p.name} width={p.logo.w} height={p.logo.h} className="h-[22px] w-auto" />
@@ -126,6 +128,7 @@ export default function Ecosystem() {
                 <p className="mt-3 text-[15px] leading-relaxed text-body">
                   <span className="font-semibold text-ink">{p.job}.</span> {p.text}
                 </p>
+                <VisitLink id={p.id} name={p.name} className="text-brand-ink" />
               </li>
             ))}
           </ul>

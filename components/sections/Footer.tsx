@@ -13,6 +13,7 @@ import {
   TERMS_URL,
   WHATSAPP_URL,
 } from '@/lib/links';
+import ProductSites from '@/components/ui/ProductSites';
 
 const ext = { target: '_blank', rel: 'noopener noreferrer' } as const;
 
@@ -87,7 +88,11 @@ export default function Footer() {
             ))}
           </div>
         </div>
-        <div className="mt-12 flex flex-col gap-2 border-t border-line pt-6 text-sm text-muted sm:flex-row sm:justify-between">
+        <nav aria-label="Qbexel products" className="mt-12 border-t border-line pt-8">
+          <h2 className="text-sm font-bold text-ink">Products</h2>
+          <ProductSites className="-mx-3 mt-3 grid grid-cols-2 gap-1 sm:grid-cols-3 lg:grid-cols-6" />
+        </nav>
+        <div className="mt-8 flex flex-col gap-2 border-t border-line pt-6 text-sm text-muted sm:flex-row sm:justify-between">
           <p>© 2026 Qbexel. All rights reserved.</p>
           <p>Names, numbers, calls and amounts in the pictures on this page are examples.</p>
         </div>
