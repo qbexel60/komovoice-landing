@@ -26,11 +26,13 @@ const shareTitle = 'KomoVoice: an AI phone agent that confirms orders by phone';
 const shareDescription =
   'Real phone calls over local numbers, in natural Bangla. KomoVoice confirms cash-on-delivery orders, answers order questions and hands the call to a person when needed. Made by Qbexel in Bangladesh.';
 
-// Set NEXT_PUBLIC_SITE_URL to the live address at build time, so link previews get absolute image URLs.
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+// Link previews need absolute URLs. NEXT_PUBLIC_SITE_URL wins when set; otherwise the live address is used
+// (without this, Vercel falls back to its own *.vercel.app address).
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://komovoice.qbexel.com';
 
 export const metadata: Metadata = {
-  ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
+  metadataBase: new URL(siteUrl),
+  alternates: { canonical: '/' },
   title,
   description,
   applicationName: 'KomoVoice',
@@ -46,6 +48,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
+    url: '/',
     siteName: 'KomoVoice by Qbexel',
     title: shareTitle,
     description: shareDescription,

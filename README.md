@@ -41,7 +41,7 @@ pnpm build         # writes the static site to out/
 pnpm start         # serves out/ on http://localhost:3100
 ```
 
-`pnpm lint` and `pnpm typecheck` must stay clean. Set `NEXT_PUBLIC_SITE_URL` to the live address at build time so
+`pnpm lint` and `pnpm typecheck` must stay clean. `NEXT_PUBLIC_SITE_URL` overrides the site address (default: the live https://komovoice.qbexel.com) at build time so
 link previews get absolute image URLs.
 
 ## Where things are
