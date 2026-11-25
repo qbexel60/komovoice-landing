@@ -1,0 +1,22 @@
+# dependencies
+/node_modules
+
+# next.js
+/.next/
+/out/
+next-env.d.ts
+*.tsbuildinfo
+
+# env and logs
+.env*
+npm-debug.log*
+
+# misc
+.DS_Store
+/.claude/
+
+# Riad's style references (third-party screenshots): a local reference only
+/references/
+
+# browser-testing logs
+/.playwright-mcp/
