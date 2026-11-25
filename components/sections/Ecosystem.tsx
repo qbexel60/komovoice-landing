@@ -138,9 +138,10 @@ export default function Ecosystem() {
 /** The link between two products: a line with what passes along it, dashed while it is not built yet. */
 function Connector({ label, status, statusLabel }: { label: string; status: Status; statusLabel: string }) {
   return (
-    <div className="relative flex shrink-0 items-center justify-center py-3 lg:w-[150px] lg:py-0">
+    <div className="relative flex shrink-0 items-center justify-center py-3 lg:w-[150px] lg:px-3 lg:py-0">
       <span aria-hidden className="absolute inset-y-0 left-1/2 border-l-2 border-dashed border-brand-200 lg:inset-x-0 lg:inset-y-auto lg:left-0 lg:top-1/2 lg:border-l-0 lg:border-t-2" />
-      <span className="relative flex flex-col items-center gap-1 rounded-2xl bg-white px-3 py-2 text-center shadow-[var(--shadow-soft)] ring-1 ring-line">
+      {/* the bubble keeps 12px clear of the cards on each side; long labels wrap to two lines */}
+      <span className="relative flex max-w-full flex-col items-center gap-1 rounded-2xl bg-white px-2.5 py-2 text-center shadow-[var(--shadow-soft)] ring-1 ring-line">
         <span className="text-[12px] font-semibold leading-tight text-ink">{label}</span>
         <span className={`rounded-full px-2 py-px text-[10.5px] font-semibold ${STATUS[status]}`}>{statusLabel}</span>
       </span>
