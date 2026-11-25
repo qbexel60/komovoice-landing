@@ -23,7 +23,9 @@ Brief: `qbexel-Eco-System/DOCS/briefs/komovoice-landing-page.md`.
   and a preview; results (confirmed, cancelled, call back, wrong number…) with notes and the full transcript; CSV
   download; live listening; hand-over to a staff phone, or a message if nobody answers; Gemini Live or ElevenLabs;
   Bangla with English words, English on request; never claims to be a person when asked.
-- Marked "coming": the AutoMate connection and live order status from AutoMate. KomoChat is "launching soon". No
+- Marked "coming": the AutoMate connection and live order status from AutoMate. Status words are the same on all five
+  product pages: AutoMate `Live`, KomoBox `Live in AutoMate`, KomoVoice `Live`, KomoChat `Launching soon`, Eastrak
+  `Early access`. The family section lists all five. Contact email: business@qbexel.com. No
   uptime or answer-rate numbers (the line can go silent after quiet hours), no prices, invented numbers, reviews or
   logos. Names, numbers, calls and amounts in the pictures are examples and labelled so.
 - Buttons: "Book a demo call" and "Talk to us" go to the contact band `#contact` (WhatsApp with a short first message,
@@ -51,7 +53,7 @@ link previews get absolute image URLs.
 | What's ours: local lines, natural Bangla, cash on delivery | `components/sections/Ours.tsx` |
 | What it does (five cards with small screens) | `components/sections/Features.tsx`, `components/visuals/FeatureVisuals.tsx` |
 | How it works: number, instructions, live listening | `components/sections/HowItWorks.tsx` |
-| Ecosystem: KomoChat, AutoMate, KomoVoice | `components/sections/Ecosystem.tsx` |
+| Ecosystem: KomoChat, AutoMate, KomoVoice, then KomoBox and Eastrak | `components/sections/Ecosystem.tsx` |
 | Custom KomoVoice for enterprises and contact centers | `components/sections/Enterprise.tsx` |
 | FAQ, dark contact band, footer | `components/sections/FAQ.tsx`, `GetStarted.tsx`, `Footer.tsx` |
 | Wave, app tile, voice bars | `components/ui/Wave.tsx`, `components/ui/VoiceBars.tsx` |

@@ -28,9 +28,31 @@ const PRODUCTS: { id: string; name: string; logo: { src: string; w: number; h: n
     name: 'KomoVoice',
     logo: { src: '/brand/komovoice-logo-color-on-light.svg', w: 825, h: 152 },
     status: 'live',
-    statusLabel: 'Live in Bangladesh',
+    statusLabel: 'Live',
     job: 'Calls',
     text: 'The AI on the phone: confirms orders, answers customers’ calls and hands over to your team.',
+  },
+];
+
+/** The rest of the family: not part of the call flow, listed so every product page shows all five. */
+const FAMILY: { id: string; name: string; logo: { src: string; w: number; h: number }; status: Status; statusLabel: string; job: string; text: string }[] = [
+  {
+    id: 'komobox',
+    name: 'KomoBox',
+    logo: { src: '/brand/komobox-logo-color-on-light.svg', w: 692, h: 152 },
+    status: 'live',
+    statusLabel: 'Live in AutoMate',
+    job: 'The team inbox',
+    text: 'Messenger and Instagram chats and comments in one place, shared with your team.',
+  },
+  {
+    id: 'eastrak',
+    name: 'Eastrak',
+    logo: { src: '/brand/eastrak-logo-color-on-light.svg', w: 551, h: 152 },
+    status: 'soon',
+    statusLabel: 'Early access',
+    job: 'Ad tracking',
+    text: 'Every sale sent to Meta, Google and TikTok from your own server, so ad blockers stop losing them.',
   },
 ];
 
@@ -45,14 +67,14 @@ const STATUS: Record<Status, string> = {
   coming: 'bg-canvas text-muted ring-1 ring-line',
 };
 
-/** KomoChat chats, AutoMate runs the orders, KomoVoice calls: where KomoVoice sits in Qbexel's family. */
+/** KomoChat chats, AutoMate runs the orders, KomoVoice calls; KomoBox and Eastrak below: where KomoVoice sits in Qbexel's family. */
 export default function Ecosystem() {
   return (
     <section id="ecosystem" aria-labelledby="ecosystem-title" className="mx-auto max-w-[1200px] px-4 pt-24 sm:px-6 sm:pt-32">
       <SectionHead
         id="ecosystem-title"
         title="KomoChat chats. AutoMate runs the orders. KomoVoice calls."
-        text="Three Qbexel products made to work as one, for online sellers: a customer chats, the order lands in AutoMate, and KomoVoice calls to confirm it."
+        text="Qbexel’s products are made to work as one, for online sellers: a customer chats, the order lands in AutoMate, and KomoVoice calls to confirm it."
       />
 
       <div className="reveal relative mt-12 overflow-hidden rounded-[32px] border border-line bg-white/60 p-4 sm:mt-14 sm:p-8 lg:p-10">
@@ -86,6 +108,28 @@ export default function Ecosystem() {
           <span className="font-semibold text-ink">Today, KomoVoice works on its own:</span> it calls the numbers you upload
           or type. The connection to AutoMate is coming, so new orders can be called without a list.
         </p>
+
+        <div className="relative mt-8 border-t border-line pt-8">
+          <p className="text-center text-[15px] font-semibold text-ink">Also in the Qbexel family</p>
+          <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+            {FAMILY.map((p) => (
+              <li key={p.id} className="card p-5 sm:p-6">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <h3>
+                    <img src={p.logo.src} alt={p.name} width={p.logo.w} height={p.logo.h} className="h-[22px] w-auto" />
+                  </h3>
+                  <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[11.5px] font-semibold ${STATUS[p.status]}`}>
+                    {p.status === 'live' && <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-[#1f9d55]" />}
+                    {p.statusLabel}
+                  </span>
+                </div>
+                <p className="mt-3 text-[15px] leading-relaxed text-body">
+                  <span className="font-semibold text-ink">{p.job}.</span> {p.text}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );

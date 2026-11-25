@@ -27,7 +27,7 @@ export default function Hero() {
         <p className="hero-rise inline-flex max-w-full items-center gap-2 rounded-full bg-white/90 px-3.5 py-1.5 text-[13px] shadow-[var(--shadow-soft)] sm:px-4 sm:text-sm">
           <span aria-hidden className="live-dot h-2 w-2 shrink-0 rounded-full bg-[#1f9d55]" />
           <span className="font-semibold text-ink">AI phone agent</span>
-          <span className="text-body">live in Bangladesh</span>
+          <span className="text-body">· Live</span>
         </p>
 
         <h1 id="hero-title" className="h-display hero-rise mt-5 max-w-[16ch] text-ink sm:max-w-none" style={{ animationDelay: '0.06s' }}>
